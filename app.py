@@ -25,7 +25,7 @@ def hello_world():
 	return "Hello world"
 
 
-@app.route("/api/books", methods=['GET'])
+@app.route("/api/books/get", methods=['GET'])
 def return_all():
     conn = mysql.connect;
     cursor = conn.cursor()
@@ -78,6 +78,23 @@ def edit_book(name):
     conn.close()
 
     return "200"
+
+
+@app.route('/api/books/<string:name>', methods=['DELETE'])
+def delete_book(name):
+    book = request.get_json()
+    print(book)
+    conn = mysql.connect;
+    cursor = conn.cursor()
+    
+    cmd = "DELETE FROM book Name = %s"
+    params = ([name])
+
+    cursor.execute(cmd, params)
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True);
