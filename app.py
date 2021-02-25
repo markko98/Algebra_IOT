@@ -87,7 +87,7 @@ def delete_book(name):
     conn = mysql.connect;
     cursor = conn.cursor()
     
-    cmd = "DELETE FROM book Name = %s"
+    cmd = "DELETE FROM book WHERE Name = %s"
     params = ([name])
 
     cursor.execute(cmd, params)
