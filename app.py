@@ -94,6 +94,8 @@ def delete_book(name):
     conn.commit()
     cursor.close()
     conn.close()
+    
+    return "200"
 
 
 if __name__ == "__main__":
