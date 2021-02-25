@@ -62,5 +62,22 @@ def add_book():
     return "200"
 
 
+@app.route('/api/books/<string:name>', methods=['PUT'])
+def edit_book(name):
+    book = request.get_json()
+    print(book)
+    conn = mysql.connect;
+    cursor = conn.cursor()
+    
+    cmd = "UPDATE book SET Name=%s, AUthor = %s WHERE Name = %s"
+    params = (book['Name'], book['Author'], name)
+
+    cursor.execute(cmd, params)
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return "200"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True);
