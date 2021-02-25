@@ -23,19 +23,6 @@ books = [
 def hello_world():
 	return "Hello world"
 
-@app.route("/test", methods=['GET'])
-def return_all_fromlist():
-    return jsonify({'books': books})
-
-
-@app.route("/test", methods=['GET'])
-def return_titles_fromlist():
-    titles=[]
-    for book in books:
-        titles.append(book['name'])
-    
-    return jsonify({'titles': titles})
-
 
 @app.route("/api/books", methods=['GET'])
 def return_all():
@@ -49,11 +36,29 @@ def return_all():
 
 @app.route("/api/books/titles", methods=['GET'])
 def return_titles():
-    titles=[]
-    for book in books:
-        titles.append(book['name'])
+    conn = mysql.connect;
+    cursor = conn.cursor()
     
-    return jsonify({'titles': titles})
+    cursor.execute("SELECT Name FROM book")
+    rows = cursor.fetchall()
+    return jsonify({'titles': rows})
+    
+    
+@app.route("/api/books", methods=['POST'])
+def add_book():
+    new_book = request.get_json()
+    conn = mysql.connect;
+    cursor = conn.cursor()
+    
+    cmd = "INSERT INTO book (Name, Author) VALUES (%s,%s)"
+    params = (new_book['Name'], new_book['Author'])
+    
+    cursor.execute(cmd, params)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    
+    return "200"
 
 
 if __name__ == "__main__":
