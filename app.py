@@ -1,4 +1,6 @@
 from flask import Flask
+import jsonify
+
 app = Flask(__name__)
 
 books = [
@@ -12,9 +14,9 @@ books = [
 def hello_world():
 	return "Hello world"
 
-@app.route("api/books", methods=['GET'])
+@app.route("/api/books", methods=['GET'])
 def return_all():
     return jsonify({'books': books})
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80);
+    app.run(host='0.0.0.0', port=80, debug=True);
