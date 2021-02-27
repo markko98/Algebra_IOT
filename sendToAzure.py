@@ -57,6 +57,6 @@ if __name__ == "__main__":
         client.on_connect = on_connect
         client.on_subscribe = on_subscribe
         client.on_message = on_message
-        client.connect("127.0.0.1", 1883)
+        client.connect("213.191.133.132", 1883)
         client.subscribe("algebra/iot/mpavlisko/#")
         client.loop_forever()
