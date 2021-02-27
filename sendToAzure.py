@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 import os
 
-URL = "http://pavliskomiot2021.westeurope.cloudapp.azure.com/api/telemetry/measurement"
+URL = "http://pavliskomiot2021.westeurope.cloudapp.azure.com/api/telemetry/measurement" 
 def on_connect(client, userdata, flags, rc):
     print("connected")
 
@@ -52,11 +52,11 @@ def post_data(json_string):
         print("Nesto ne radi")
 
 if __name__ == "__main__":
-        print("in main loop")
+        print("eee")
         client = mqtt.Client()
         client.on_connect = on_connect
         client.on_subscribe = on_subscribe
         client.on_message = on_message
-        client.connect("213.191.133.132", 1883)
+        client.connect("127.0.0.1", 1883)
         client.subscribe("algebra/iot/mpavlisko/#")
         client.loop_forever()
