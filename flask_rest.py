@@ -20,22 +20,22 @@ mysql.init_app(app)
 def main():
     return render_template('index.html')
 
-@app.route('/temperature')
-def chartTemperature():
-    return render_template('temperature.html')
+#@app.route('/temperature')
+#def chartTemperature():
+#    return render_template('temperature.html')
+#
+#@app.route('/heartrate')
+#def chartHeartrate():
+#    return render_template('heartrate.html')
+#
+#@app.route('/battery')
+#def chartBattery():
+#    return render_template('battery.html')
 
-@app.route('/heartrate')
-def chartHeartrate():
-    return render_template('heartrate.html')
 
-@app.route('/battery')
-def chartBattery():
-    return render_template('battery.html')
-
-
-@app.route('/map')
-def chartMap():
-    return render_template('map.html')
+#@app.route('/map')
+#def chartMap():
+#    return render_template('map.html')
 
 @app.route('/api/telemetry/measurement', methods=['POST'])
 def post_measurement():
