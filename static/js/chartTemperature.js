@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://algebra-iot-2021-00.westeurope.cloudapp.azure.com:80/api/telemetry/measurement",
+    url: "http://pavliskomiot2021.westeurope.cloudapp.azure.com:80/api/telemetry/measurement",
     data: {
         "DeviceId": '1',
         "SensorName": "Temperature", 
