@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 import os
 
-URL = "pavliskomiot2021.westeurope.cloudapp.azure.com/api/telemetry/measurement" 
+URL = "http://pavliskomiot2021.westeurope.cloudapp.azure.com/api/telemetry/measurement" 
 def on_connect(client, userdata, flags, rc):
     print("connected")
 
