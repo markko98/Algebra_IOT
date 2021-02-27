@@ -4,9 +4,12 @@ from flask_mysqldb import MySQL
 from flask import session, request
 from flask import make_response, abort
 from datetime import datetime
+from flask import Flask
+from flask_cors import CORS
 
 mysql = MySQL()
 app = Flask(__name__)
+CORS(app)
 
 # MySQL configurations
 app.config['MYSQL_USER'] = 'telemetryuser'

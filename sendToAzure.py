@@ -24,8 +24,8 @@ def handle_mqtt_data(topic, payload):
             json_data["SensorName"] = "temperature"
             json_data["SensorValue"] = str(float(payload))
             json_data["DeviceId"] = 1
-        elif "pulse" in topic and "mpavlisko" in topic:
-            json_data["SensorName"] = "pulse"
+        elif "heartrate" in topic and "mpavlisko" in topic:
+            json_data["SensorName"] = "heartrate"
             json_data["SensorValue"] = str(float(payload))
             json_data["DeviceId"] = 1
         elif "battery" in topic and "mpavlisko" in topic:
